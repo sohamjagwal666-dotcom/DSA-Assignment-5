@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+struct node{
+node *next;
+
+int data;
+
+};
+void lltraversal(node *ptr1){
+    node *ptr=ptr1;
+    while(ptr!=NULL){
+        cout<<ptr->data<<" ";
+        ptr=ptr->next;
+    }
+}
+void insert(node *&head,node *ptr1,int a){
+    if(head==ptr1){
+       node *temp=new node;
+       temp->data=a;
+       temp->next=head;
+       head=temp;
+
+        
+       
+        
+       
+        
+    }
+    else{
+        node *x=head;
+    while(x->next!=ptr1){
+        
+        x=x->next;
+    }
+    node *temp=new node;
+    node *temp2;
+    temp2=x->next;
+    x->next=temp;
+    temp->data=a;
+    temp->next=temp2;
+    }
+    
+}
+void deletion(node *&head,node* ptr){
+
+     if(head==ptr){
+        head=head->next;
+    }
+    
+    
+    else{
+    node*x=head;
+    while(x->next!=ptr){
+       
+        x=x->next;
+    }
+    node *temp;
+    x->next=ptr->next;
+    delete ptr;
+
+
+}}
+void insert2(node*& head,int a,int b){
+node*x=head;
+while(x!=NULL&&x->data!=a){
+    x=x->next;
+}
+if(x==NULL){
+    cout<<a<<" is not in the linked list"<<endl;
+    return;
+}
+node *temp2=new node;
+temp2->data=b;
+temp2->next=x->next;
+x->next=temp2;
+
+
+
+}
+int main(){
+node *head;
+node *second=new node;
+node *third=new node;
+node *fourth=new node;
+node *fifth=new node;
+node *first=new node;
+head=first;
+first->data=1;
+first->next=second;
+second->data=22;
+second->next=third;
+third->data=37;
+third->next=fourth;
+fourth->data=44;
+fourth->next=NULL;
+int b=55;
+insert(head,NULL,55);
+insert2(head,55,66);
+
+lltraversal(head);
+cout<<endl;
+deletion(head,head);
+
+lltraversal(head);
+}
