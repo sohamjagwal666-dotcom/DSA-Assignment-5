@@ -10,7 +10,6 @@ void removeLoop(ListNode* list) {
             break;
         }
         slowPtr = slowPtr->next;
-        prevNode = fastPtr->next;
         fastPtr = fastPtr->next->next;
     }
     if (fastPtr == NULL || fastPtr->next == NULL) {
