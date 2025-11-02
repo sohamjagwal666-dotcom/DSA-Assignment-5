@@ -27,14 +27,33 @@ void insertEnd(Node* &head, int val) {
     temp->next = newNode;
 }
 
-int countKey(Node *head, int key) {
+int countKey(Node *&head, int key) {
     int count = 0;
     Node *temp = head;
+    Node *prev=NULL;
 
     while (temp != NULL) {
-        if (temp->data == key)
-            count++;
-        temp = temp->next;
+        if (temp->data == key){
+            if(prev!=NULL){
+                
+                prev->next=temp->next;}
+            else{
+                    head=temp->next;
+                }
+                
+                
+                Node* temp1=temp;
+                
+                temp=temp->next;
+                temp1->next=NULL;
+               
+                                
+                
+                
+            count++;}
+            else{
+        prev=temp;
+        temp = temp->next;}
     }
 
     return count;
@@ -70,6 +89,8 @@ int main() {
 
     int ans = countKey(head, key);
     cout << "The key " << key << " occurs " << ans << " times." << endl;
+
+    display(head);
 
     return 0;
 }
